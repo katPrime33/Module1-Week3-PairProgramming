@@ -3,6 +3,7 @@ package com.techelevator.hr;
 import com.techelevator.Billable;
 import com.techelevator.Person;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class Employee extends Person implements Billable {
@@ -33,7 +34,25 @@ public class Employee extends Person implements Billable {
         }
     }
 
-    //public double getBalanceDue(Map<String, Double>);
+    public double getBalanceDue(Map<String, Double> servicesRendered){
+        double servicesCost= 0.00;
+
+        Map<String, Double> services = new HashMap<String, Double>();
+        services.put("Grooming", 20.00);
+        services.put("Obedience", 100.00);
+        services.put("Walking", 50.00);
+        services.put("Evaluation", 25.00);
+
+        for(Map.Entry<String, Double> costMap : servicesRendered.entrySet()){
+            if(!(services.containsKey("Walking"))){
+                servicesCost += costMap.getValue();
+            }
+            if(services.containsKey("Walking")){
+                servicesCost += (costMap.getValue() - 25.00);
+            }
+        }
+        return servicesCost;
+    }
 
 
     // getters and setters
