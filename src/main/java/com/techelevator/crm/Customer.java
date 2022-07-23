@@ -41,13 +41,7 @@ public class Customer extends Person implements Billable {
 
     //method
     public double getBalanceDue(Map<String, Double> servicesRendered) {
-        double servicesCost= 0.00;
-
-        Map<String, Double> services = new HashMap<String, Double>();
-        services.put("Grooming", 20.00);
-        services.put("Obedience", 100.00);
-        services.put("Walking", 50.00);
-        services.put("Evaluation", 25.00);
+        double servicesCost = 0.00;
 
         for(Map.Entry<String, Double> costMap : servicesRendered.entrySet()){
             servicesCost += costMap.getValue();

@@ -9,7 +9,7 @@ public class Pet {
     private String species;
     private ArrayList<String> vaccinations = new ArrayList<>();
 
-    public Pet(String name, String species) {
+    public Pet() {
         this.name = name;
         this.species = species;
     }
@@ -42,16 +42,11 @@ public class Pet {
 
     //method
 
-    public String listVaccinations() {
-        String vaccine = null;
-        List<String> vaccinations = new ArrayList<>();
-        vaccinations.add("Rabies");
-        vaccinations.add("Distemper");
-        vaccinations.add("Parvo");
-        vaccinations.add("super covid");
-        for(int i = 0; i < vaccinations.size(); i++){
-            vaccine = vaccine + vaccinations.get(i) + ", ";
-            return vaccine;
+    public String listVaccinations(List<String> vaccinations) {
+        String vaccine = vaccinations.get(0);
+
+        for(int i = 1; i < vaccinations.size(); i++){
+            vaccine = vaccine + ", " + vaccinations.get(i) ;
         }
         return vaccine;
     }

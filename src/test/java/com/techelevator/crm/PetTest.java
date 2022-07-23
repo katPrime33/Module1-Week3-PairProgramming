@@ -12,14 +12,18 @@ public class PetTest {
     public void test_listVaccinations(){
 
         //Arrange
-    PetTest testList = new PetTest();
+    Pet pet = new Pet();
         //Act
            List<String> results = new ArrayList<>();
-        results.add(0,"Rabies");
-        results.add(1, "a");
-        results.add(2, "Flea Treatment");
+        results.add("Rabies");
+        results.add("Parvo");
+        results.add("super covid");
+        results.add("Distemper");
+
+        String expectedResults = "Rabies, Parvo, super covid, Distemper";
+        String actualResults = pet.listVaccinations(results);
         //Assert
-              Assert.assertEquals();
+              Assert.assertEquals(expectedResults, actualResults);
     }
 
 }
