@@ -1,5 +1,6 @@
 package com.techelevator.hr;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -9,6 +10,23 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 public class EmployeeTests {
+
+    @Test
+    public void test_EmployeeAmount() {
+        //Arrange
+        Employee employee = new Employee("Billy", "Bob-Smith");
+        Map<String, Double> services = new HashMap<String, Double>();
+        services.put("Grooming", 20.00);
+        services.put("Obedience", 100.00);
+        services.put("Walking", 50.00);
+        services.put("Evaluation", 25.00);
+
+        double expectedBalance = 170.00;
+        double actualBalance = employee.getBalanceDue(services);
+        Assert.assertEquals(expectedBalance, actualBalance, 0.01);
+
+    }
+
 
     @Test
     public void getFullNameReturnsCorrectFormat() {

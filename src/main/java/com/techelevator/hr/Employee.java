@@ -44,14 +44,11 @@ public class Employee extends Person implements Billable {
         services.put("Evaluation", 25.00);
 
         for(Map.Entry<String, Double> costMap : servicesRendered.entrySet()){
-            if(!(services.containsKey("Walking"))){
-                servicesCost += costMap.getValue();
-            }
             if(services.containsKey("Walking")){
-                servicesCost += (costMap.getValue() - 25.00);
+                servicesCost += (costMap.getValue());
             }
         }
-        return servicesCost;
+        return servicesCost - 25;
     }
 
 
